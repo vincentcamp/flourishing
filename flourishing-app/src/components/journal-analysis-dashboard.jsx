@@ -110,20 +110,20 @@ const JournalAnalysisDashboard = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
-          <p className="font-medium">{new Date(label).toLocaleDateString('en-US', {
+        <div className="bg-white dark:bg-[#1a1a1a] p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+          <p className="text-black dark:text-white font-medium">{new Date(label).toLocaleDateString('en-US', {
             weekday: 'long',
             year: 'numeric',
             month: 'long',
             day: 'numeric'
           })}</p>
-          <p className="text-blue-600">Score: {payload[0].value}</p>
+          <p className="text-blue-600 dark:text-blue-400">Score: {payload[0].value}</p>
         </div>
       );
     }
     return null;
   };
-
+    
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -145,7 +145,7 @@ const JournalAnalysisDashboard = () => {
                 bottom: 30,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis
                 dataKey="date"
                 tickFormatter={(date) => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -161,7 +161,7 @@ const JournalAnalysisDashboard = () => {
               <Line
                 type="monotone"
                 dataKey="score"
-                stroke="#2563eb"
+                stroke="var(--foreground)"
                 strokeWidth={2}
                 dot={{ r: 2 }}
                 activeDot={{ r: 6 }}
@@ -179,7 +179,7 @@ const JournalAnalysisDashboard = () => {
           </button>
           
           {isOpen && (
-            <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+            <div className="mt-4 p-4 bg-card-background border border-border rounded-lg">
               <p className="italic mb-4">Your task is to analyze the following journal entry based on its emotional tone, mindset, and overall sentiment. Provide a score out of 100 based on the following factors:</p>
               
               <ol className="space-y-4">
