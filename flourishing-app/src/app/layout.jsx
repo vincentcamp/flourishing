@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Journal Sentiment Analysis",
-  description: "Journal Sentiment Analysis for Jonathan Haidt's Flourishing Class",
+  description: "Journal Entry Analysis Visualization for Jonathan Haidt's Flourishing Class",
 };
 
 export default function RootLayout({ children }) {
